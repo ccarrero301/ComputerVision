@@ -50,7 +50,7 @@
         {
             FilePath = path;
 
-            var image = (Bitmap)Image.FromFile(path, true);
+            var image = (Bitmap) Image.FromFile(path, true);
 
             ImgSize = $"{image.Size.Width}x{image.Size.Height}";
 

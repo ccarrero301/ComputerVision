@@ -27,9 +27,9 @@ namespace CustomVision
 
         public void RGBtoXYZ(int RVal, int GVal, int BVal)
         {
-            double R = Convert.ToDouble(RVal) / 255.0;       //R from 0 to 255
-            double G = Convert.ToDouble(GVal) / 255.0;       //G from 0 to 255
-            double B = Convert.ToDouble(BVal) / 255.0;       //B from 0 to 255
+            double R = Convert.ToDouble(RVal) / 255.0; //R from 0 to 255
+            double G = Convert.ToDouble(GVal) / 255.0; //G from 0 to 255
+            double B = Convert.ToDouble(BVal) / 255.0; //B from 0 to 255
 
             if (R > 0.04045)
             {
@@ -39,6 +39,7 @@ namespace CustomVision
             {
                 R = R / 12.92;
             }
+
             if (G > 0.04045)
             {
                 G = Math.Pow(((G + 0.055) / 1.055), 2.4);
@@ -47,6 +48,7 @@ namespace CustomVision
             {
                 G = G / 12.92;
             }
+
             if (B > 0.04045)
             {
                 B = Math.Pow(((B + 0.055) / 1.055), 2.4);
@@ -73,7 +75,7 @@ namespace CustomVision
             double ref_Y = 100.000;
             double ref_Z = 108.883;
 
-            double var_X = X / ref_X;         // Observer= 2°, Illuminant= D65
+            double var_X = X / ref_X; // Observer= 2°, Illuminant= D65
             double var_Y = Y / ref_Y;
             double var_Z = Z / ref_Z;
 
@@ -85,6 +87,7 @@ namespace CustomVision
             {
                 var_X = (7.787 * var_X) + (16 / 116.0);
             }
+
             if (var_Y > 0.008856)
             {
                 var_Y = Math.Pow(var_Y, (1 / 3.0));
@@ -93,6 +96,7 @@ namespace CustomVision
             {
                 var_Y = (7.787 * var_Y) + (16 / 116.0);
             }
+
             if (var_Z > 0.008856)
             {
                 var_Z = Math.Pow(var_Z, (1 / 3.0));
@@ -115,7 +119,8 @@ namespace CustomVision
         public int CompareTo(ColorFormulas oComparisionColor)
         {
             // Based upon the Delta-E (1976) formula at easyrgb.com (http://www.easyrgb.com/index.php?X=DELT&H=03#text3)
-            double DeltaE = Math.Sqrt(Math.Pow((CieL - oComparisionColor.CieL), 2) + Math.Pow((CieA - oComparisionColor.CieA), 2) + Math.Pow((CieB - oComparisionColor.CieB), 2));
+            double DeltaE = Math.Sqrt(Math.Pow((CieL - oComparisionColor.CieL), 2) + Math.Pow((CieA - oComparisionColor.CieA), 2) +
+                                      Math.Pow((CieB - oComparisionColor.CieB), 2));
             return Convert.ToInt16(Math.Round(DeltaE));
         }
 
