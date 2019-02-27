@@ -1,4 +1,4 @@
-﻿namespace CustomVision
+﻿namespace CustomVision.Histograms
 {
     using System;
     using System.Drawing;

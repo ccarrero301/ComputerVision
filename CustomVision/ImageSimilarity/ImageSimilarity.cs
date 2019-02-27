@@ -1,4 +1,4 @@
-﻿namespace CustomVision
+﻿namespace CustomVision.ImageSimilarity
 {
     using System.Drawing;
     using System.Drawing.Imaging;

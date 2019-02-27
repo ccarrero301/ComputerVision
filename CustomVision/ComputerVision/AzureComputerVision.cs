@@ -1,4 +1,4 @@
-﻿namespace CustomVision
+﻿namespace CustomVision.ComputerVision
 {
     using System;
     using System.IO;
