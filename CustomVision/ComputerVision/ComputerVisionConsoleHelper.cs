@@ -14,7 +14,7 @@
             var stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            ComputerVisionConsoleHelper.CalculateComputerVision(originalFileName, optimizedFileName);
+            CalculateComputerVision(originalFileName, optimizedFileName);
 
             stopWatch.Stop();
             Console.WriteLine($"Execution Time : {stopWatch.Elapsed.TotalSeconds} Seconds");
